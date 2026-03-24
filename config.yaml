@@ -1,0 +1,47 @@
+# ══════════════════════════════════════════════════════
+# Archaeological Pipeline Configuration
+# ══════════════════════════════════════════════════════
+
+# ── Models ──────────────────────────────────────────
+vlm_model: "llava-v1.6-mistral-7b"       # VLM for image interpretation
+llm_model: "mistral-7b-instruct"          # LLM for refinement
+embedding_model: "all-MiniLM-L6-v2"       # Sentence embeddings for RAG
+device: "cuda"
+
+# ── Domains ─────────────────────────────────────────
+domains:
+  - ceramics
+  - paintings
+  - architecture
+
+# ── Knowledge Base Paths ────────────────────────────
+# Each domain has two sub-dirs: historical/ and cataloguing/
+# Place your PDF/TXT sources inside each.
+#
+# knowledge_bases/
+# ├── ceramics/
+# │   ├── historical/    ← Dressel trade texts, amphora studies
+# │   └── cataloguing/   ← Dressel typology tables, classification manual
+# ├── paintings/
+# │   ├── historical/    ← Mau, Pompeian art history
+# │   └── cataloguing/   ← Four styles schema, ICCD cataloguing norms
+# └── architecture/
+#     ├── historical/    ← Roman building history, Adam
+#     └── cataloguing/   ← Opus classification manual, building phases
+kb_base_dir: "./knowledge_bases"
+
+# ── Output ──────────────────────────────────────────
+output_dir: "./output"
+coco_format: true
+csv_format: true
+save_annotated_images: true
+
+# ── RAG Settings ────────────────────────────────────
+rag_top_k: 5
+rag_chunk_size: 512
+rag_chunk_overlap: 64
+
+# ── VLM Settings ────────────────────────────────────
+vlm_max_tokens: 1024
+vlm_temperature: 0.2
+detection_confidence_threshold: 0.3

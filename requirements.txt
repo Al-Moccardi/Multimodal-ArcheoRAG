@@ -1,0 +1,21 @@
+# Pompeii Multimodal Archaeological Framework
+# pip install -r requirements.txt
+
+# ── Core ────────────────────────────────────
+gradio>=4.0
+Pillow>=10.0
+requests>=2.31
+
+# ── RAG Vector Store ────────────────────────
+chromadb>=0.5
+
+# ── PDF extraction (install at least one) ───
+PyPDF2>=3.0
+# pdfplumber>=0.10
+# pymupdf>=1.23
+
+# ── Optional: sentence embeddings ───────────
+# sentence-transformers>=2.7
+
+# ── Optional: config files ──────────────────
+# pyyaml>=6.0

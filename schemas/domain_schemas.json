@@ -1,0 +1,51 @@
+{
+  "ceramics": {
+    "object_id": "string (UUID)",
+    "domain": "ceramics",
+    "typology": "Dressel/Morel classification code",
+    "form": "amphora | plate | bowl | lamp | lid | cup | jar",
+    "fabric": "description of clay body and inclusions",
+    "technique": "wheel-made | mold-made | hand-built",
+    "surface_treatment": "slip | glaze | burnished | plain",
+    "decoration": "painted | stamped | incised | applied | none",
+    "estimated_date": "date range string",
+    "provenance_region": "manufacturing origin",
+    "functional_category": "transport | storage | cooking | serving | lighting",
+    "conservation_state": "intact | fragmentary | restored",
+    "dimensions_notes": "observable size info",
+    "historical_context": "from historical KB",
+    "classification_notes": "from cataloguing KB",
+    "confidence": "high | medium | low"
+  },
+  "paintings": {
+    "object_id": "string (UUID)",
+    "domain": "paintings",
+    "mau_style": "I | II | III | IV | transitional | undetermined",
+    "subject_type": "mythological | landscape | still_life | decorative | portrait | genre",
+    "iconographic_elements": ["list of identified elements"],
+    "color_palette": ["list of dominant colors"],
+    "technique": "fresco | secco | encaustic | mixed",
+    "wall_zone": "dado | middle_zone | upper_zone | frieze | lunette",
+    "estimated_date": "date range string",
+    "conservation_state": "well-preserved | faded | fragmentary | detached",
+    "comparanda": "similar known paintings",
+    "historical_context": "from historical KB",
+    "classification_notes": "from cataloguing KB",
+    "confidence": "high | medium | low"
+  },
+  "architecture": {
+    "object_id": "string (UUID)",
+    "domain": "architecture",
+    "opus_type": "incertum | reticulatum | testaceum | mixtum | caementicium | quadratum | signinum | latericium",
+    "structural_element": "wall | column | pillar | arch | vault | floor | threshold",
+    "architectural_order": "Doric | Ionic | Corinthian | Tuscan | Composite | N/A",
+    "materials": ["list of materials identified"],
+    "construction_phase": "pre-Samnite | Samnite | early_Roman | Augustan | Julio-Claudian | post-62AD",
+    "estimated_date": "date range string",
+    "building_type": "domus | villa | thermae | temple | public | commercial",
+    "conservation_state": "standing | partially_collapsed | reconstructed | ruined",
+    "historical_context": "from historical KB",
+    "classification_notes": "from cataloguing KB",
+    "confidence": "high | medium | low"
+  }
+}

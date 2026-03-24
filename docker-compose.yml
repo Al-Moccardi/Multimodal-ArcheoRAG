@@ -1,0 +1,44 @@
+# docker-compose.yml
+# Usage:
+#   docker-compose up -d
+#   Then open http://localhost:7860
+#
+# Make sure to place PDFs in knowledge_base/ before building.
+# After first start, index with:
+#   docker-compose exec app python indexer.py
+
+version: "3.8"
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: pompeii-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    # If no GPU, remove the deploy block above
+
+  app:
+    build: .
+    container_name: pompeii-app
+    ports:
+      - "7860:7860"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    volumes:
+      - ./knowledge_base:/app/knowledge_base
+      - ./vector_stores:/app/vector_stores
+      - ./outputs:/app/outputs
+    depends_on:
+      - ollama
+
+volumes:
+  ollama_data:
